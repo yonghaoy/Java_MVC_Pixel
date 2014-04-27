@@ -37,7 +37,6 @@ public class ImageEditorView extends JPanel {
 		tool_ui = null;
 		undo = new JButton("undo");
 		undo.setActionCommand("undo");
-		//undo.addActionListener(undo_rensponder);
 		add(undo,BorderLayout.SOUTH);
 	}
 
@@ -81,9 +80,5 @@ public class ImageEditorView extends JPanel {
 		undo.addActionListener(l);
 		
 	}
-	/*public void setView(Frame f){
-		frame_view = new FrameView(f);
-		add(frame_view, BorderLayout.NORTH);
-	}*/
 
 }

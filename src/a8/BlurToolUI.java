@@ -14,8 +14,12 @@ import javax.swing.event.ChangeListener;
 
 public class BlurToolUI extends JPanel implements ChangeListener {
 
-	private JSlider blur_size;
+	// a slider control the range of blur
+	private JSlider blur_range_slider;
+	
+	//a slider control the size of brush
 	private JSlider size_slider;
+	
 	int blur_range;
 	int brush_size;
 	public BlurToolUI() {
@@ -33,13 +37,13 @@ public class BlurToolUI extends JPanel implements ChangeListener {
 		JLabel blur_label = new JLabel("Blur Size:");
 		blur_slider_panel.setLayout(new BorderLayout());
 		blur_slider_panel.add(blur_label, BorderLayout.WEST);
-		blur_size = new JSlider(0,5,0);
-		blur_size.setMajorTickSpacing(1);
-		blur_size.setPaintLabels(true);
-		blur_size.setSnapToTicks(true);
-		blur_size.addChangeListener(this);
-		blur_size.setName("blur_slider");
-		blur_slider_panel.add(blur_size, BorderLayout.CENTER);
+		blur_range_slider = new JSlider(0,5,0);
+		blur_range_slider.setMajorTickSpacing(1);
+		blur_range_slider.setPaintLabels(true);
+		blur_range_slider.setSnapToTicks(true);
+		blur_range_slider.addChangeListener(this);
+		blur_range_slider.setName("blur_slider");
+		blur_slider_panel.add(blur_range_slider, BorderLayout.CENTER);
 
 		
 		JPanel size_slider_panel = new JPanel();
@@ -79,7 +83,7 @@ public class BlurToolUI extends JPanel implements ChangeListener {
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		blur_range = blur_size.getValue();
+		blur_range = blur_range_slider.getValue();
 		brush_size = size_slider.getValue();
 	
 	}

@@ -35,6 +35,7 @@ public class ImageEditorController implements ToolChoiceListener, MouseListener,
 			view.installToolUI(inspector_tool.getUI());
 			current_tool = inspector_tool;
 		} else if (tool_name.equals("Paint Brush")) {
+			//pass brush color from PixelInspector tool to Paint Brush
 			paint_brush_tool.set_inspect_pixel(((PixelInspectorTool) current_tool).get_inspect_Pixel());
 			view.installToolUI(paint_brush_tool.getUI());
 			current_tool = paint_brush_tool;
@@ -84,7 +85,6 @@ public class ImageEditorController implements ToolChoiceListener, MouseListener,
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand() == "undo"){
 			model.undo_frame();
-			//view.setView(model.getUndoFrame());
 		}
 		
 		

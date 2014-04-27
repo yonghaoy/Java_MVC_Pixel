@@ -10,8 +10,6 @@ public class BlurTool implements Tool{
 
 	private BlurToolUI ui;
 	private ImageEditorModel model;
-	private int brush_size = 5;
-	
 
 	
 	public BlurTool(ImageEditorModel model) {

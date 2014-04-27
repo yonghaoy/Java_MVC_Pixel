@@ -9,10 +9,7 @@ import javax.swing.event.ChangeListener;
 public class PaintBrushTool implements Tool{
 
 	private PaintBrushToolUI ui;
-	private ImageEditorModel model;
-	private int brush_size = 5;
-	
-
+	private ImageEditorModel model;	
 	
 	public PaintBrushTool(ImageEditorModel model) {
 		this.model = model;

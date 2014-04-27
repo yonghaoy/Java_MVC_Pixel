@@ -6,7 +6,10 @@ public class ImageEditorModel {
 
 	private Frame original;
 	private Frame current;
+	
+	//a stack store all changed frames
 	private Stack<Frame> undo_frames;
+	
 	public ImageEditorModel(Frame f) {
 		original = f;
 		current = original.copy();
@@ -23,7 +26,10 @@ public class ImageEditorModel {
 	}
 
 	public void paintAt(int x, int y, Pixel brushColor, int brush_size) {
+		
+		//push current fraem into stack
 		undo_frames.push(current.copy());
+		
 		current.suspendNotifications();
 		
 		for (int xpos=x-brush_size+1; xpos <=x+brush_size-1; xpos++) {
@@ -44,6 +50,8 @@ public class ImageEditorModel {
 		Frame new_frame = current.copy();
 		undo_frames.push(new_frame);
 	}
+	
+	//when click undo, the method pop a frame from stack
 	public void undo_frame(){
 		if(!undo_frames.empty()){
 			Frame tem = undo_frames.pop();
@@ -77,6 +85,7 @@ public class ImageEditorModel {
 		current.resumeNotifications();
 		
 	}
+	
 	private Frame getAround(Frame blur_f, int x_pos, int y_pos, int size){
 		
 		//the length of sub IndirectFrame square area
